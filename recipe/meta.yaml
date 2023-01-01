@@ -21,6 +21,7 @@ requirements:
     - pip
     - python >=3.8
     - poetry
+    - poetry-dynamic-versioning
   run:
     - colorama >=0.4.3
     - dunamai >=1.7.0
