@@ -1,11 +1,11 @@
-About copier
-============
+About copier-feedstock
+======================
+
+Feedstock license: [BSD-3-Clause](https://github.com/conda-forge/copier-feedstock/blob/main/LICENSE.txt)
 
 Home: https://github.com/copier-org/copier
 
 Package license: MIT
-
-Feedstock license: [BSD-3-Clause](https://github.com/conda-forge/copier-feedstock/blob/main/LICENSE.txt)
 
 Summary: A library for rendering project templates.
 
@@ -143,5 +143,6 @@ In order to produce a uniquely identifiable distribution:
 Feedstock Maintainers
 =====================
 
+* [@fcollonval](https://github.com/fcollonval/)
 * [@kir0ul](https://github.com/kir0ul/)
 
