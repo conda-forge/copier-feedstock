@@ -145,4 +145,5 @@ Feedstock Maintainers
 
 * [@fcollonval](https://github.com/fcollonval/)
 * [@kir0ul](https://github.com/kir0ul/)
+* [@thewchan](https://github.com/thewchan/)
 
