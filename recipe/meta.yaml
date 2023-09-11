@@ -1,5 +1,5 @@
 {% set name = "copier" %}
-{% set version = "8.1.0" %}
+{% set version = "8.2.0" %}
 
 package:
   name: {{ name|lower }}
@@ -7,7 +7,7 @@ package:
 
 source:
   url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/copier-{{ version }}.tar.gz
-  sha256: 902b4eb65fafe7a1621991234d2ebf3bc3fc9323e64e3a2560a00c05c73f6229
+  sha256: 9f68afbe3ae2776e61ec8b1cf35743376abd47630e3a81f21e2ffb6dd537a66f
 
 build:
   entry_points:
@@ -19,8 +19,8 @@ build:
 requirements:
   host:
     - pip
-    - python >=3.8
-    - poetry
+    - python >=3.8,<4.0
+    - poetry-core >=1.0.0
     - poetry-dynamic-versioning
   run:
     - colorama >=0.4.3
@@ -32,14 +32,14 @@ requirements:
     - packaging >=23.0
     - pathspec >=0.9.0
     - plumbum >=1.6.9
-    # TODO: remove when fixed upstream https://github.com/copier-org/copier/issues/1225
-    - pydantic >=1.10.2,<2
+    - pydantic >=2.0.3
     - pygments >=2.7.1
-    - python >=3.8
+    - python >=3.8,<4.0
     - pyyaml >=5.3.1
     - pyyaml-include >=1.2
     - questionary >=1.8.1
     - git >=2.27
+    - typing-extensions >=3.7.4,<5.0.0
 
 test:
   imports:
@@ -60,3 +60,4 @@ extra:
   recipe-maintainers:
     - kir0ul
     - fcollonval
+    - thewchan
