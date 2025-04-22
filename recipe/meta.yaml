@@ -1,5 +1,5 @@
 {% set name = "copier" %}
-{% set version = "9.6.0" %}
+{% set version = "9.7.0" %}
 
 package:
   name: {{ name|lower }}
@@ -7,11 +7,11 @@ package:
 
 source:
   url: https://pypi.org/packages/source/{{ name[0] }}/{{ name }}/copier-{{ version }}.tar.gz
-  sha256: e05a18b387b96e8d1fbd5271d37f59c9a02be5ad717f7878d0505562fd62b786
+  sha256: d9c4d527b60886124028cb262c3afef25635746046aefabae5cd89611def69b5
 
 build:
   entry_points:
-    - copier = copier.__main__:copier_app_run
+    - copier = copier.__main__:CopierApp.run
   script: {{ PYTHON }} -m pip install . -vv
   number: 0
   noarch: python
@@ -20,8 +20,8 @@ requirements:
   host:
     - pip
     - python {{ python_min }}
-    - poetry-core >=1.7.0
-    - poetry-dynamic-versioning >=1.1.0
+    - hatchling
+    - hatch-vcs
   run:
     - python >={{ python_min }}
     - colorama >=0.4.6
@@ -29,7 +29,6 @@ requirements:
     - funcy >=1.17
     - jinja2 >=3.1.5
     - jinja2-ansible-filters >=1.3.1
-    - git >=2.27
     - packaging >=23.0
     - pathspec >=0.9.0
     - plumbum >=1.6.9
@@ -39,6 +38,7 @@ requirements:
     - questionary >=1.8.1
     - eval-type-backport >=0.1.3,<0.3.0
     - platformdirs >=4.3.6
+    - typing_extensions >=4.0.0,<5.0.0
 
 test:
   imports:
