@@ -1,5 +1,5 @@
 {% set name = "copier" %}
-{% set version = "9.7.0" %}
+{% set version = "9.7.1" %}
 
 package:
   name: {{ name|lower }}
@@ -7,7 +7,7 @@ package:
 
 source:
   url: https://pypi.org/packages/source/{{ name[0] }}/{{ name }}/copier-{{ version }}.tar.gz
-  sha256: d9c4d527b60886124028cb262c3afef25635746046aefabae5cd89611def69b5
+  sha256: 83da2cbe5e28a1593c649f5dac37d916774b07a3ba3ce66e6966a3e84e557885
 
 build:
   entry_points:
