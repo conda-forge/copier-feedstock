@@ -1,29 +1,33 @@
-{% set name = "copier" %}
-{% set version = "9.10.0" %}
+schema_version: 1
+
+context:
+  name: copier
+  version: 9.10.0
 
 package:
-  name: {{ name|lower }}
-  version: {{ version }}
+  name: ${{ name|lower }}
+  version: ${{ version }}
 
 source:
-  url: https://pypi.org/packages/source/{{ name[0] }}/{{ name }}/copier-{{ version }}.tar.gz
+  url: https://pypi.org/packages/source/${{ name[0] }}/${{ name }}/copier-${{ version }}.tar.gz
   sha256: 7ac1ff85995268b76e2d714cf988b1d75bd64717d86b6a665e43e7756f6540fc
 
 build:
-  entry_points:
-    - copier = copier.__main__:CopierApp.run
-  script: {{ PYTHON }} -m pip install . -vv
-  number: 0
+  number: 1
   noarch: python
+  script: ${{ PYTHON }} -m pip install . -vv
+  python:
+    entry_points:
+      - copier = copier.__main__:CopierApp.run
 
 requirements:
   host:
     - pip
-    - python {{ python_min }}
+    - python ${{ python_min }}.*
     - hatchling
     - hatch-vcs
   run:
-    - python >={{ python_min }}
+    - python >=${{ python_min }}
     - colorama >=0.4.6
     - dunamai >=1.7.0
     - funcy >=1.17
@@ -40,21 +44,24 @@ requirements:
     - platformdirs >=4.3.6
     - typing_extensions >=4.0.0,<5.0.0
 
-test:
-  imports:
-    - copier
-  commands:
-    - pip check
-    - copier --help
-  requires:
-    - pip
-    - python {{ python_min }}
+tests:
+  - python:
+      imports:
+        - copier
+      python_version: ${{ python_min }}.*
+  - requirements:
+      run:
+        - pip
+        - python ${{ python_min }}.*
+    script:
+      - pip check
+      - copier --help
 
 about:
-  home: https://github.com/copier-org/copier
   summary: A library for rendering project templates.
   license: MIT
   license_file: LICENSE
+  homepage: https://github.com/copier-org/copier
 
 extra:
   recipe-maintainers:
