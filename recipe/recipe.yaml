@@ -2,7 +2,7 @@ schema_version: 1
 
 context:
   name: copier
-  version: "9.17.2"
+  version: "9.18.1"
 
 package:
   name: ${{ name|lower }}
@@ -10,7 +10,7 @@ package:
 
 source:
   url: https://pypi.org/packages/source/${{ name[0] }}/${{ name }}/copier-${{ version }}.tar.gz
-  sha256: 02e9c0d05281603c06d52f48350e48ffca0b4283d9f025664fbce4befabaa555
+  sha256: 79ca8ff91d5749652f9b3ed8e7651545c0b611ee9277f4550737078a30ef29fc
 
 build:
   number: 0
