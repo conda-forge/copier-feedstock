@@ -49,7 +49,9 @@ tests:
   - python:
       imports:
         - copier
-      python_version: ${{ python_min }}.*
+      python_version:
+        - ${{ python_min }}.*
+        - "*"
       pip_check: true
   - requirements:
       run:
